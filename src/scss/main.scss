@@ -10,5 +10,11 @@
 
 @import 'core/reset';
 @import 'layout/header';
+@import 'layout/search_bar';
 @import 'layout/page';
 @import 'layout/footer';
+
+.hidden{
+    display: none;
+}
+
