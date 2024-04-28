@@ -55,9 +55,9 @@ const renderFavourites = ()=>{
     } else{
         favouriteDrinks.forEach((favDrink) => {
             emptyListMsg.classList.add('hidden');
-            favList.innerHTML += `<li id="${favDrink.idDrink}" class="js-drink marked">
-                    <img src=${favDrink.strDrinkThumb} alt="" class="main__cocktails--list-card-img">
-                    <h3 class="main__cocktails--list-card-title">${favDrink.strDrink}</h3>
+            favList.innerHTML += `<li id="${favDrink.idDrink}" class="js-drink marked favourites--list-card">
+                    <img src=${favDrink.strDrinkThumb} alt="" class="favourites--list-card-img">
+                    <h3 class="favourites--list-card-title">${favDrink.strDrink}</h3>
             </li>`
         });
     };
@@ -122,6 +122,7 @@ const init = ()=>{
 
 function resetSearch(ev){
     ev.preventDefault();
+    inputSearch.value = '';
     renderAllDrinks(drinksData);
 };
 
@@ -134,7 +135,7 @@ function resetFavs(ev){
 };
 
 //execute on load page
-init();
 btnSearch.addEventListener('click', handleSearch);
 btnFavouritesReset.addEventListener('click', resetFavs);
 btnSearchReset.addEventListener('click', resetSearch);
+init();

@@ -1,0 +1,43 @@
+.main{
+    display: flex;
+
+    &__cocktails{
+
+        padding: 1rem;
+        background-color: var(--darkpurple);
+
+        &--title{
+            font-size: 1.5rem;
+            color: var(--lightpurple);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        &--list{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            row-gap: 2rem;
+            gap: 2rem;
+
+            &-card{
+                background-color: var(--lightpurple);
+                border-radius: 0.5rem;
+                border: solid 0.2rem var(--yellow);
+
+                &-img{
+                    height: 5rem;
+                    width: 5rem;
+                }
+
+                &-title{
+                    font-size: 1rem;
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+}

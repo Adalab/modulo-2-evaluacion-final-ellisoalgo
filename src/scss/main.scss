@@ -9,6 +9,8 @@
 @import 'core/reset';
 @import 'layout/header';
 @import 'layout/search_bar';
+@import 'layout/section_cocktails';
+@import 'layout/section_favourites';
 @import 'layout/cocktail_card';
 @import 'layout/footer';
 
@@ -16,8 +18,5 @@
     display: none;
 }
 
-.marked{
-    background-color: var(--yellow);
-    border: solid 0.2rem var(--darkblue);
-    border-radius: 0.5rem;
-}
+
+
