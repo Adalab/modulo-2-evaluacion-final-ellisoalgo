@@ -5,14 +5,24 @@
 @import 'pages/index';
 */
 
+body{
+    background-color: black;
+}
+
 @import 'core/variables';
 @import 'core/reset';
 @import 'layout/header';
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
 @import 'layout/search_bar';
 @import 'layout/section_cocktails';
 @import 'layout/section_favourites';
-@import 'layout/cocktail_card';
 @import 'layout/footer';
+
 
 .hidden{
     display: none;

@@ -18,9 +18,9 @@ const renderDrink = (eachDrink)=>{
     //if indexFav = -1, its not in fav array, if not, it is in the fav array adn therefore must add class marked
     let classMarked = indexFav === -1 ? "" : "marked";
 
-    return `<li id="${eachDrink.idDrink}" class="js-drink ${classMarked} main__cocktails--list-card">
-            <img src=${eachDrink.strDrinkThumb} alt="" class="main__cocktails--list-card-img">
-            <h3 class="main__cocktails--list-card-title">${eachDrink.strDrink}</h3>
+    return `<li id="${eachDrink.idDrink}" class="js-drink ${classMarked} cocktails--list-card">
+            <img src=${eachDrink.strDrinkThumb} alt="" class="cocktails--list-card-img">
+            <h3 class="cocktails--list-card-title">${eachDrink.strDrink.toUpperCase()}</h3>
     </li>`;
     
 };
@@ -57,7 +57,7 @@ const renderFavourites = ()=>{
             emptyListMsg.classList.add('hidden');
             favList.innerHTML += `<li id="${favDrink.idDrink}" class="js-drink marked favourites--list-card">
                     <img src=${favDrink.strDrinkThumb} alt="" class="favourites--list-card-img">
-                    <h3 class="favourites--list-card-title">${favDrink.strDrink}</h3>
+                    <h3 class="favourites--list-card-title">${favDrink.strDrink.toUpperCase()}</h3>
             </li>`
         });
     };

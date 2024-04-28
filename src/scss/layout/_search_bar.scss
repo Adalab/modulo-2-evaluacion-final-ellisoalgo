@@ -1,7 +1,7 @@
 .search__form{
-    padding: 1rem;
+    padding: 0.2rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background-color: var(--yellow);
     color: var(--darkpurple);
@@ -9,26 +9,32 @@
     &--bar{
         width: 7rem;
         height: 2rem;
-        border: solid 0.1rem var(--darkpurple);
+        border: solid 0.1rem black;
         padding: 0.3rem;
         font-size: 1rem;
+        font-family: var(--titleFont);
+        font-style: oblique;
     }
 
     &--btn{
         width: 7rem;
         height: 2rem;
-        border: solid 0.1rem var(--darkpurple);
+        border: solid 0.1rem black;
         font-size: 1rem;
-        background-color: var(--darkpurple);
-        color: var(--yellow);
+        background-color: transparent;
+        color: black;
+        text-align: left;
+        padding: 0.2rem;
     }
 
     &--reset{
         width: 7rem;
         height: 2rem;
-        border: solid 0.1rem var(--darkpurple);
+        border: solid 0.1rem black;
         font-size: 1rem;
-        background-color: var(--lightpurple);
-        color: var(--darkblue);
+        background-color: black;
+        color: var(--yellow);
+        text-align: left;
+        padding: 0.2rem;
     }
 }

@@ -1,9 +1,23 @@
 .header{
-    background-color: var(--darkpurple);
+    
     color: var(--yellow);
-    font-size: 5rem;
     padding: 1rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+
+    &__title{
+        font-family: var(--titleFont);
+        font-weight: 900;
+        font-style: italic;
+        font-size: 4rem;
+        line-height: normal;
+    }
+
+    &__icon{
+        font-size: 4rem;
+        padding-bottom: 0.5rem;
+    }
 }
+
