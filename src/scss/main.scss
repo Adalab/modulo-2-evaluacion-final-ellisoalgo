@@ -1,20 +1,23 @@
-/*@import 'core/variables';
+/*
 
 @import 'components/code';
 @import 'components/links';
-
-
-
 @import 'pages/index';
 */
 
+@import 'core/variables';
 @import 'core/reset';
 @import 'layout/header';
 @import 'layout/search_bar';
-@import 'layout/page';
+@import 'layout/cocktail_card';
 @import 'layout/footer';
 
 .hidden{
     display: none;
 }
 
+.marked{
+    background-color: var(--yellow);
+    border: solid 0.2rem var(--darkblue);
+    border-radius: 0.5rem;
+}

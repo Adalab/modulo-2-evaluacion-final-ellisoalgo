@@ -14,26 +14,12 @@
   </head>
 
   <body>
-    <header class="header">
-      <h1>Cocktail Search</h1>
-    </header>
-    <section class="search__form">
-      <form action="">
-        <input type="text" name="search" id="search" class="search__form--bar">
-        <input type="submit" value="Search" class="search__form--btn">
-        <input type="submit" value="Reset" class="search__form--reset">
-      </form>
-    </section>
+    <load src="./partials/header.html"/>
+    <load src="./partials/section_form.html"/>
     <main class="main">
-      <section class="main__favourites">
-        <h2>Favourite cocktails</h2>
-        <button>Reset Favourites</button>
-        <p>(This deletes all your favourites!)</p>
-      </section>
-      <section class="main__cocktails">
-        <h2>Cocktail list</h2>
-      </section>
-      <script src="./js/main.js"></script>
+      <load src="./partials/main_favourites.html"/>
+      <load src="./partials/main_cocktails.html"/>
     </main>
+    <script src="./js/main.js"></script>
   </body>
 </html>

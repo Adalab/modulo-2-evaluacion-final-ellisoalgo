@@ -1,0 +1,31 @@
+.main{
+    &__cocktails{
+        width: 100%;
+
+        &--list{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            
+
+            &-card{
+                background-color: var(--lightpurple);
+                border-radius: 0.5rem;
+                border: solid 0.2rem var(--darkpurple);
+
+                &-img{
+                    height: 5rem;
+                    width: 5rem;
+                }
+
+                &-title{
+                    font-size: 1rem;
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+}
