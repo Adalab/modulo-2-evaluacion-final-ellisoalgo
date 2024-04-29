@@ -3,17 +3,25 @@
     overflow: scroll;
     height: 85vh;
 
-    &--title{
-        color: var(--lightpurple);
-        text-align: right;
-        padding: 1rem;
-        font-family: var(--titleFont);
-        font-size: 3rem;
-        border-bottom: solid 0.1rem var(--lightpurple);
-        margin-bottom: 1rem;
+    &__title{
+        height: 8rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        &--title{
+            width: 100%;
+            color: var(--lightpurple);
+            text-align: right;
+            padding: 1rem;
+            font-family: var(--titleFont);
+            font-size: 3rem;
+            border-bottom: solid 0.1rem var(--lightpurple);
+        }
     }
 
-    &--list{
+    &__list{
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -21,6 +29,13 @@
         align-items: center;
         row-gap: 2rem;
         gap: 2rem;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
 
         &-card{
                 
