@@ -19,11 +19,15 @@ const renderDrink = (eachDrink)=>{
     //if indexFav = -1, its not in fav array, if not, it is in the fav array adn therefore must add class marked
     let classMarked = indexFav === -1 ? "" : "marked";
 
+    const drinkThumb = eachDrink.strDrinkThumb;
+    if(drinkThumb === null){
+        drinkThumb.src = `https://via.placeholder.com/80x80/000000/f8dd52/?text=no_photo`;
+    };
+
     return `<li id="${eachDrink.idDrink}" class="js-drink ${classMarked} cocktails--list-card">
-            <img src=${eachDrink.strDrinkThumb} alt="" class="cocktails--list-card-img">
+            <img src=${drinkThumb} alt="cocktail photo" class="cocktails--list-card-img">
             <h3 class="cocktails--list-card-title">${eachDrink.strDrink.toUpperCase()}</h3>
     </li>`;
-    
 };
 
 const handleAddFavourites = (ev) =>{
@@ -102,7 +106,6 @@ function getData(){
 
 function handleSearch(ev){
     ev.preventDefault();
-    //let valueSearch = inputSearch.value;
     getData();
 };
 
