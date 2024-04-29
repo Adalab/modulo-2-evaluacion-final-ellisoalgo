@@ -5,14 +5,34 @@
     justify-content: space-between;
     align-items: center;
 
-    &__copy{
-        font-size: 1rem;
-        font-family: var(--titleFont);
-        font-weight: 700;
-        color: var(--yellow);
+    &__div{ 
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &--copy{
+            font-size: 1rem;
+            font-family: var(--titleFont);
+            font-weight: 700;
+            color: var(--yellow);
+        }
+
+        &--git, &--linked{
+            font-size: 1rem;
+            color: var(--yellow);
+        }
+
+        &--git:hover{
+            scale: 150%;
+        }
+
+        &--linked:hover{
+            scale: 150%;
+        }
     }
+    
 
     &__img{
-        height: 1.5rem;
+        height: 2rem;
     }
 }

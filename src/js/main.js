@@ -7,6 +7,7 @@ const inputSearch = document.querySelector(".js-search-input");
 const emptyListMsg = document.querySelector(".js-empty-list");
 const btnSearchReset = document.querySelector(".js-search-reset");
 const btnFavouritesReset = document.querySelector(".js-favourite-reset-btn");
+const searchError = document.querySelector(".js-error-not-found");
 
 let drinksData = [];
 let favouriteDrinks = [];
@@ -57,7 +58,10 @@ const renderFavourites = ()=>{
             emptyListMsg.classList.add('hidden');
             favList.innerHTML += `<li id="${favDrink.idDrink}" class="js-drink marked favourites--list-card">
                     <img src=${favDrink.strDrinkThumb} alt="" class="favourites--list-card-img">
-                    <h3 class="favourites--list-card-title">${favDrink.strDrink.toUpperCase()}</h3>
+                    <h3 class="favourites--list-card-title">
+                        ${favDrink.strDrink.toUpperCase()}
+                        <i class="fa-solid fa-xmark favourites--list-card-title-cross"></i>
+                    </h3>
             </li>`
         });
     };
@@ -72,7 +76,7 @@ const renderAllDrinks = (array)=>{
     for (let i=0; i<array.length; i++){
         mainList.innerHTML += renderDrink(array[i]);
     };
-
+    
     const allDrinksLi = document.querySelectorAll(".js-drink");
     for (const li of allDrinksLi) {
         li.addEventListener('click', handleAddFavourites);
@@ -82,25 +86,24 @@ const renderAllDrinks = (array)=>{
 function getData(){
     let valueSearch = inputSearch.value;
     const drinksURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valueSearch}`;
-
     fetch(drinksURL)
     .then((response) => response.json())
     .then((dataApi) => {
         //store all drinks in array
         drinksData = dataApi.drinks;
         console.log(drinksData);
-        localStorage.setItem("allDrinks", JSON.stringify(drinksData));
+        
         renderAllDrinks(drinksData);
+        localStorage.setItem("allDrinks", JSON.stringify(drinksData));
         renderFavourites();
-    });
+    })
+    .catch((error) => console.log(`Fuck, there's been an error: ${error}`));
 };
-
 
 function handleSearch(ev){
     ev.preventDefault();
-    let valueSearch = inputSearch.value;
-    const filterDrinks = drinksData.filter((item)=> item.strDrink.toLowerCase().includes(valueSearch.toLowerCase()));
-    renderAllDrinks(filterDrinks);
+    //let valueSearch = inputSearch.value;
+    getData();
 };
 
 const init = ()=>{
@@ -123,7 +126,7 @@ const init = ()=>{
 function resetSearch(ev){
     ev.preventDefault();
     inputSearch.value = '';
-    renderAllDrinks(drinksData);
+    getData();
 };
 
 function resetFavs(ev){

@@ -25,6 +25,12 @@
         color: black;
         text-align: left;
         padding: 0.2rem;
+        transition: 0.3s;
+    }
+
+    &--btn:hover{
+        background-color: black;
+        color: var(--yellow);
     }
 
     &--reset{
@@ -36,5 +42,11 @@
         color: var(--yellow);
         text-align: left;
         padding: 0.2rem;
+        transition: 0.3s;
+    }
+
+    &--reset:hover{
+        background-color: transparent;
+        color: black;
     }
 }
