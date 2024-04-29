@@ -6,7 +6,7 @@ El objetivo principal era escribir el códido de JavaScript, con un HTML y CSS s
 Los requisitos eran:
 - Crear un campo de texto con un botón para buscar un cóctel por su título, y un botón para resetear los resultados de la búsqueda.
 - Pintar el listado de los resultados de la búsqueda, donde debe aparecer la imágen del cóctel y el nombre.
-- Al hacer clic sobre el botón de 'Buscar', la aplicación debe conectarse al API abierto de [TheCocktailDB (https://www.thecocktaildb.com/)].
+- Al hacer clic sobre el botón de 'Buscar', la aplicación debe conectarse al API abierto de [TheCocktailDB] (https://www.thecocktaildb.com/).
 - Añadir una imagen de relleno en caso de que el cóctel no tenga imagen propia.
 - Crear un listado de 'Favoritos', donde la usuaria pueda guardar cócteles haciendo clic encima de cada uno. El estilo de la tarjeta pintada debe cambiar al ser clicada, para resaltar que se ha añadido a 'Favoritos'. También debe poder borrarse de la lista al volver a hacer clic sobre el cóctel resaltado.
 - Añadir un botón de reset para borrar de una vez todos los cócteles guardados en favoritos.
