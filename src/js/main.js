@@ -16,7 +16,7 @@ let favouriteDrinks = [];
 const renderDrink = (eachDrink)=>{
     const indexFav = favouriteDrinks.findIndex((item) => item.idDrink === eachDrink.idDrink);
 
-    //if indexFav = -1, its not in fav array, if not, it is in the fav array adn therefore must add class marked
+    //if indexFav = -1, its not in fav array, if not, it is in the fav array and therefore must add class marked
     let classMarked = indexFav === -1 ? "" : "marked";
 
     const drinkThumb = eachDrink.strDrinkThumb;
@@ -144,8 +144,8 @@ const init = ()=>{
 
 function resetSearch(ev){
     ev.preventDefault();
-    inputSearch.value = 'MARGARITA';
-    getData();
+    inputSearch.value = '';
+    initialLoad();
 };
 
 function resetFavs(ev){
@@ -154,6 +154,7 @@ function resetFavs(ev){
     localStorage.setItem("favouriteDrinks", JSON.stringify(favouriteDrinks));
     console.log('clicked');
     renderFavourites();
+    renderAllDrinks(drinksData);
 };
 
 //execute on load page
