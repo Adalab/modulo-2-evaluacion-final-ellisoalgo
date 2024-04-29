@@ -8,21 +8,30 @@
     overflow: scroll;
     height: 85vh;
 
-    &--title{
-        color: var(--darkpurple);
-        text-align: right;
-        font-family: var(--titleFont);
-        font-size: 2rem;
-        font-style: italic;
-        border-bottom: solid 0.1rem var(--darkpurple);
-        margin-bottom: 1rem;
+    &__title{
+        height: 8rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
         width: 100%;
-        padding: 0.2rem;
-        height: 6rem;
-        
+
+        &--title{
+            color: var(--darkpurple);
+            text-align: right;
+            font-family: var(--titleFont);
+            font-size: 1.75rem;
+            font-style: italic;
+            border-bottom: solid 0.1rem var(--darkpurple);
+            padding: 1rem;
+
+            @media screen and (min-width: 768px) {
+                font-size: 3rem;
+            }
+        }
     }
 
-    &--btn{
+    &__btn{
         width: 8.5rem;
         height: 2rem;
         border: solid 0.1rem black;
@@ -40,8 +49,8 @@
         color: black;
     }
 
-    &--warning{
-        font-size: 0.7rem;
+    &__warning{
+        font-size: 1rem;
         text-align: right;
         color: black;
         padding-left: 0.1rem;
@@ -49,9 +58,10 @@
         font-style: oblique;
         font-weight: 600;
         width: 8.5rem;
+        padding-top: 0.3rem;
     }
 
-    &--emptyList{
+    &__emptyList{
         font-family: var(--titleFont);
         font-size: 1.5rem;
         border-bottom: solid 0.02rem black;
@@ -60,13 +70,13 @@
         width: 100%;
     }
 
-    &--list{
+    &__list{
         display: flex;
         flex-direction: row-reverse;
         flex-wrap: wrap;
         gap: 2rem;
         justify-content: flex-start;
-        align-items: flex-end;
+        align-items: stretch;
         row-gap: 1rem;
         padding-bottom: 1rem;
         border-bottom: solid 0.02rem black;
@@ -77,17 +87,24 @@
             border-bottom: solid 0.02rem black;
             border-right: solid 0.02rem black;
             padding: 0.2rem;
-            
+            width: 9.4rem;
+
+            @media screen and (min-width: 768px) {
+                width: 10.4rem;
+            }
 
             &-img{
-                height: 8rem;
-                width: 8rem;
+                height: 9rem;
+                width: 9rem;
+
+                @media screen and (min-width: 768px) {
+                    height: 10rem;
+                    width: 10rem;
+                }
             }
 
             &-title{
-                display: flex;
-                justify-content: space-between;
-                font-size: 0.75rem;
+                font-size: 1.3rem;
                 font-family: var(--titleFont);
                 font-weight: SemiBold 600;
                 font-style: Italic;
@@ -95,10 +112,20 @@
                 color: black;
                 margin-top: 0.5rem;
                 margin-left: 0.2rem;
+                text-wrap: wrap;
+                
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                flex-wrap: nowrap;
 
                 &-cross{
-                    font-size: 0.8rem;
+                    font-size: 1.5rem;
                     padding-right: 0.2rem;
+                    padding-bottom: 0.2rem;
+                    align-self: flex-end;
+                    justify-self: flex-end;
+                    
                 }
             }
         }

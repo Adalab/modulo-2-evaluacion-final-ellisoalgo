@@ -24,9 +24,9 @@ const renderDrink = (eachDrink)=>{
         drinkThumb.src = `https://via.placeholder.com/80x80/000000/f8dd52/?text=no_photo`;
     };
 
-    return `<li id="${eachDrink.idDrink}" class="js-drink ${classMarked} cocktails--list-card">
-            <img src=${drinkThumb} alt="cocktail photo" class="cocktails--list-card-img">
-            <h3 class="cocktails--list-card-title">${eachDrink.strDrink.toUpperCase()}</h3>
+    return `<li id="${eachDrink.idDrink}" class="js-drink ${classMarked} cocktails__list-card">
+            <img src=${drinkThumb} alt="cocktail photo" class="cocktails__list-card-img">
+            <h3 class="cocktails__list-card-title">${eachDrink.strDrink.toUpperCase()}</h3>
     </li>`;
 };
 
@@ -60,11 +60,11 @@ const renderFavourites = ()=>{
     } else{
         favouriteDrinks.forEach((favDrink) => {
             emptyListMsg.classList.add('hidden');
-            favList.innerHTML += `<li id="${favDrink.idDrink}" class="js-drink marked favourites--list-card">
-                    <img src=${favDrink.strDrinkThumb} alt="" class="favourites--list-card-img">
-                    <h3 class="favourites--list-card-title">
-                        ${favDrink.strDrink.toUpperCase()}
-                        <i class="fa-solid fa-xmark favourites--list-card-title-cross"></i>
+            favList.innerHTML += `<li id="${favDrink.idDrink}" class="js-drink marked favourites__list-card">
+                    <img src=${favDrink.strDrinkThumb} alt="" class="favourites__list-card-img">
+                    <h3 class="favourites__list-card-title">
+                    ${favDrink.strDrink.toUpperCase()}
+                    <i class="fa-solid fa-xmark favourites__list-card-title-cross"></i>
                     </h3>
             </li>`
         });
@@ -85,6 +85,22 @@ const renderAllDrinks = (array)=>{
     for (const li of allDrinksLi) {
         li.addEventListener('click', handleAddFavourites);
     };
+};
+
+function initialLoad(){
+    const drinksURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
+    fetch(drinksURL)
+    .then((response) => response.json())
+    .then((dataApi) => {
+        //store all drinks in array
+        drinksData = dataApi.drinks;
+        console.log(drinksData);
+        
+        renderAllDrinks(drinksData);
+        localStorage.setItem("allDrinks", JSON.stringify(drinksData));
+        renderFavourites();
+    })
+    .catch((error) => console.log(`Fuck, there's been an error: ${error}`));
 };
 
 function getData(){
@@ -115,20 +131,20 @@ const init = ()=>{
         favouriteDrinks = JSON.parse(localFavouriteDrinks);
         renderFavourites();
     } else {
-        getData();
+        initialLoad();
     };
     const localAllDrinks = localStorage.getItem('allDrinks');
     if (localAllDrinks !== null){
         drinksData = JSON.parse(localAllDrinks);
         renderAllDrinks(drinksData);
     } else {
-        getData();
+        initialLoad();
     };
 };
 
 function resetSearch(ev){
     ev.preventDefault();
-    inputSearch.value = '';
+    inputSearch.value = 'MARGARITA';
     getData();
 };
 

@@ -3,31 +3,39 @@
     overflow: scroll;
     height: 85vh;
 
-    &--title{
-        color: var(--lightpurple);
-        text-align: right;
-        padding: 1rem;
-        font-family: var(--titleFont);
-        font-size: 3rem;
-        border-bottom: solid 0.1rem var(--lightpurple);
-        margin-bottom: 1rem;
-    }
-
-    &--error{
-        font-family: var(--titleFont);
-        font-size: 1.5rem;
-        border-bottom: solid 0.02rem var(--yellow);
-        padding-bottom: 1rem;
-    }
-
-    &--list{
+    &__title{
+        height: 8rem;
+        margin-bottom: 2rem;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: flex-end;
-        align-items: flex-start;
+        align-items: flex-end;
+
+        &--title{
+            width: 100%;
+            color: var(--lightpurple);
+            text-align: right;
+            padding: 1rem;
+            font-family: var(--titleFont);
+            font-size: 3rem;
+            border-bottom: solid 0.1rem var(--lightpurple);
+        }
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
         row-gap: 2rem;
         gap: 2rem;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: stretch;
+        }
 
         &-card{
                 
@@ -35,14 +43,15 @@
             border-bottom: solid 0.02rem var(--yellow);
             border-right: solid 0.02rem var(--yellow);
             padding: 0.2rem;
+            width: 15.5rem;
 
             &-img{
-                height: 8rem;
-                width: 8rem;
+                height: 15rem;
+                width: 15rem;
             }
 
             &-title{
-                font-size: 0.75rem;
+                font-size: 2rem;
                 font-family: var(--titleFont);
                 font-weight: SemiBold 600;
                 font-style: Italic;
@@ -50,6 +59,7 @@
                 color: var(--yellow);
                 margin-top: 0.5rem;
                 margin-left: 0.2rem;
+                text-wrap: wrap;
             }
         }
     }
