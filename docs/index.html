@@ -3,67 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <title>Ellis Whitney - Evaluación Módulo 2</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     
+    <script src="https://kit.fontawesome.com/f67677b7d2.js" crossorigin="anonymous"></script>
     <link rel="icon" href="./images/favicon.png" />
-    <link rel="stylesheet" href="./assets/main-62015576.css">
+    <link rel="stylesheet" href="./assets/index-8912b210.css">
   </head>
 
   <body>
-    <div class="page">
-      <header class="page__header">
-  <img src="./images/logo-adalab.png" alt="Adalab">
-  <h1>Bienvenidos a Adalab</h1>
+    <header class="header">
+  <h1 class="header__title">
+    THE COCKTAIL DATABASE
+  </h1>
+  <i class="fa-solid fa-martini-glass-citrus header__icon"></i>
 </header>
-
-      <main class="page__main">
-  <h2>Este es el starter kit de Adalab</h2>
-  <p>Lo usamos para aprender:</p>
-  <ul class="main__list">
-    <li>Sass</li>
-    <li>HTML partials</li>
-    <li>Gulp</li>
-    <li>y muchas cosas más</li>
-  </ul>
-  <p>Si quieres saber cúales son las rutas correctas para:</p>
-  <ul class="main__list">
-    <li>
-      una <code class="code">&lt;img /&gt;</code> mira el fichero
-      <code class="code">./src/html/partials/header.html</code>.
-    </li>
-    <li>
-      y para un <code class="code">background-image</code> mira el fichero
-      <code class="code">./src/html/scss/layout/_page.scss</code>.
-    </li>
-  </ul>
-  <p>
-    Si quieres saber cómo usar un partial HTML dentro de otro partial, busca en la carperta
-    <code class="code">./src/html/index.html</code> y
-    <code class="code">./src/html/partials/main.html</code>, y verás cómo estamos creando estos
-    enlaces:
-  </p>
-  <ul class="main__list">
-    <li>
-      <a class="link__adalab" href="https://adalab.es">Adalab</a>
-
-    </li>
-    <li>
-      <a class="{=$aClass}" href="./more-info.html">Más info del starter kit</a>
-
-    </li>
-  </ul>
-</main>
-
-      <footer class="page__footer">
-  <small>
-    &copy; Todos los derechos reservados
-    <a class="link__adalab" href="https://adalab.es">Adalab</a>
-
-  </small>
-</footer>
-
+    <section class="search__form">
+  <form action="">
+    <input type="text" name="search" id="search" class="search__form--bar js-search-input" placeholder="MARGARITA">
+    <input type="submit" value="SEARCH" class="search__form--btn js-search-btn">
+    <input type="submit" value="RESET" class="search__form--reset js-search-reset">
+  </form>
+</section>
+    <main class="main">
+      <section class="favourites">
+    <div class="favourites__title">
+        <h2 class="favourites__title--title">Favourite cocktails</h2>
     </div>
+    <span class="js-empty-list favourites__emptyList">Your favourite cocktails will appear here, go ahead - click one to add!</span>
+    <ul class="favourites__list js-favouriteList"></ul>
+    <button class="favourites__btn js-favourite-reset-btn">Reset Favourites</button>
+    <p class="favourites__warning">This deletes all your favourites</p>
+</section>
+      <section class="cocktails">
+    <div class="cocktails__title">
+        <h2 class="cocktails__title--title">Cocktail list</h2>
+    </div>
+    <ul class="cocktails__list js-cocktailsList"></ul>
+</section>
+    </main>
+    <footer class="footer">
+    <div class="footer__div">
+        <p class="footer__div--copy">&copy;ELLIS WHITNEY</p>
+        <a href="https://github.com/ellisoalgo" target="_blank"><i class="fa-brands fa-github-alt footer__div--git"></i></a>
+        <a href="https://www.linkedin.com/in/elliswhitney/" target="_blank"><i class="fa-brands fa-linkedin footer__div--linked"></i></a>
+    </div>
+    <img src="./images/smiley_logo_yellow.png" alt="" class="footer__img">
+
+</footer> 
     <script src="./js/main.js"></script>
   </body>
 </html>
