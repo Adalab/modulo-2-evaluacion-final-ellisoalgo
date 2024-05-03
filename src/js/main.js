@@ -8,12 +8,15 @@ const emptyListMsg = document.querySelector(".js-empty-list");
 const btnSearchReset = document.querySelector(".js-search-reset");
 const btnFavouritesReset = document.querySelector(".js-favourite-reset-btn");
 const searchError = document.querySelector(".js-error-not-found");
+const searchResult = document.querySelector(".js-search-result");
 
 let drinksData = [];
 let favouriteDrinks = [];
+let countDrinks = [2, 5, 9];
 
 //functions
 const renderDrink = (eachDrink)=>{
+    //
     const indexFav = favouriteDrinks.findIndex((item) => item.idDrink === eachDrink.idDrink);
 
     //if indexFav = -1, its not in fav array, if not, it is in the fav array and therefore must add class marked
@@ -24,8 +27,14 @@ const renderDrink = (eachDrink)=>{
         drinkThumb.src = `https://via.placeholder.com/80x80/000000/f8dd52/?text=no_photo`;
     };
 
+    let lastModification = eachDrink.dateModified;
+    if (eachDrink.dateModified === null){
+        lastModification = 'sin modificación';
+    };
+    
     return `<li id="${eachDrink.idDrink}" class="js-drink ${classMarked} cocktails__list-card">
             <img src=${drinkThumb} alt="cocktail photo" class="cocktails__list-card-img">
+            <p>${lastModification}</p>
             <h3 class="cocktails__list-card-title">${eachDrink.strDrink.toUpperCase()}</h3>
     </li>`;
 };
@@ -116,13 +125,28 @@ function getData(){
         renderAllDrinks(drinksData);
         localStorage.setItem("allDrinks", JSON.stringify(drinksData));
         renderFavourites();
+        const howMany = drinksData.length;
+        searchResult.innerHTML = `There are ${howMany} drinks that match your search.`
     })
     .catch((error) => console.log(`Fuck, there's been an error: ${error}`));
 };
 
 function handleSearch(ev){
     ev.preventDefault();
-    getData();
+    getData();;
+};
+
+const handleResults = ()=>{
+
+    const howMany = drinksData.length;
+
+    for (let i=0; i<countDrinks.length; i++){
+        if (howMany > countDrinks[i]){
+            console.log(`El número de resultados es ${howMany} y es mayor que ${countDrinks[i]}.`);
+        } else if (howMany < countDrinks[i]){
+            console.log(`El número de resultados es ${howMany} y es menor que ${countDrinks[i]}.`);
+        };
+    };
 };
 
 const init = ()=>{
@@ -161,4 +185,5 @@ function resetFavs(ev){
 btnSearch.addEventListener('click', handleSearch);
 btnFavouritesReset.addEventListener('click', resetFavs);
 btnSearchReset.addEventListener('click', resetSearch);
+searchResult.addEventListener('click', handleResults);
 init();
